@@ -21,6 +21,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const postDetail: Post = await fetchPostDetail(params["post-id"]);
   return {
     title: postDetail.title,
+    description: postDetail.body,
   };
 };
 
