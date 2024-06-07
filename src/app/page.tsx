@@ -10,12 +10,11 @@ const fetchPostList = async () => {
   );
 };
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const postList: Post[] = await fetchPostList();
-  return {
-    title: postList[0].title,
-  };
+export const metadata: Metadata = {
+  title: "記事一覧",
+  description: "このページは記事一覧です。",
 };
+
 // 📍PPRを有効化
 export const experimental_ppr = true;
 

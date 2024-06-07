@@ -20,7 +20,7 @@ const fetchPostDetail = async (postId: string) => {
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const postDetail: Post = await fetchPostDetail(params["post-id"]);
   return {
-    title: postDetail.title,
+    title: `記事詳細 | ${postDetail.title}`,
     description: postDetail.body,
   };
 };
