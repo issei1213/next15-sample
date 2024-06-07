@@ -22,7 +22,7 @@ export const experimental_ppr = true;
 export default function TodoIndexPage() {
   return (
     <main className="max-w-2xl w-full mx-auto pt-4">
-      <h2>記事一覧</h2>
+      <h2 className="text-xl font-bold">記事一覧</h2>
       <Suspense fallback={<div>Loading...</div>}>
         <PostIndex />
       </Suspense>
@@ -36,15 +36,14 @@ const PostIndex = async () => {
   await setTimeout(3000);
 
   return (
-    <>
-      <ul className="flex flex-col gap-4 mt-4">
-        {postList.map((post) => (
-          <li key={post.id} className="flex gap-1">
-            <span>{post.id}</span>
-            <p>{post.title}</p>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className="flex flex-col gap-4 mt-4">
+      {postList.map((post) => (
+        <li key={post.id}>
+          <Link href={`${post.id}`}>
+            {post.id}: {post.title}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
